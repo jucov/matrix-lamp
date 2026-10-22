@@ -2159,11 +2159,11 @@ static void MetaBallsRoutine() {
   const uint16_t param1 = millis() * speedfactor;
 
   #if (WIDTH < 16) || (HEIGHT < 16)
-  const uint8_t x2 = remap(fastled_helper::perlin8(param1, 25355, 685), 0, 255, 0, MAX_X);
-  const uint8_t y2 = remap(fastled_helper::perlin8(param1, 355, 11685), 0, 255, 0, MAX_Y);
+  const uint8_t x2 = esphome::remap<int, int>(fastled_helper::perlin8(param1, 25355, 685), 0, 255, 0, MAX_X);
+  const uint8_t y2 = esphome::remap<int, int>(fastled_helper::perlin8(param1, 355, 11685), 0, 255, 0, MAX_Y);
 
-  const uint8_t x3 = remap(fastled_helper::perlin8(param1, 55355, 6685), 0, 255, 0, MAX_X);
-  const uint8_t y3 = remap(fastled_helper::perlin8(param1, 25355, 22685), 0, 255, 0, MAX_Y);
+  const uint8_t x3 = esphome::remap<int, int>(fastled_helper::perlin8(param1, 55355, 6685), 0, 255, 0, MAX_X);
+  const uint8_t y3 = esphome::remap<int, int>(fastled_helper::perlin8(param1, 25355, 22685), 0, 255, 0, MAX_Y);
   #else
   const uint8_t x2 = fastled_helper::perlin8(param1, 25355, 685) / WIDTH;
   const uint8_t y2 = fastled_helper::perlin8(param1, 355, 11685) / HEIGHT;
